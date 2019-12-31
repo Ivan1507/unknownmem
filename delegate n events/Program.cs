@@ -9,13 +9,15 @@ namespace delegate_n_events
         delegate void MessageHandler(string message);
         static void Main(string[] args)
         {
+            Counter counter = new Counter();
+            Handler1 hand = new Handler1();
+            counter.Myeve += hand.Message;
+            counter.Count();
 
-            My += mes => Console.WriteLine(mes);
-            Sum(255);
-            
-           
+
+
         }
-
+        #region
         private static void Program_My(string str)
         {
             Console.WriteLine(str);
@@ -33,10 +35,12 @@ namespace delegate_n_events
         {
             Console.WriteLine("xuy");
             return x;
-        }
-       static public void Sum(int sum)
+    }
+ static public void Sum(int sum)
         {
+            if(sum>20)
             My?.Invoke($"Na s4ete {sum}");
         }
+        #endregion
     }
 }
